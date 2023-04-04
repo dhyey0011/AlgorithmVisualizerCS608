@@ -1,1 +1,1 @@
-# AlgorithmVisualizerCS608
+# Algo-project
