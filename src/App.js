@@ -4,6 +4,7 @@ import PathfindingVisualizer from './PathfindingVisualizer/PathfindingVisualizer
 import "./index.css";
 import SortingVisualizer from './SortingVisualizer/SortingVisualizer';
 
+
 function App() {
   return (
     <>

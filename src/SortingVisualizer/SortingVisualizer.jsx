@@ -1,10 +1,10 @@
 import React from 'react';
-import {getMergeSortAnimations,getBubbleSortAnimations} from '../sortingAlgorithms/sortingAlgorithms.js';
+import { getMergeSortAnimations, getBubbleSortAnimations } from '../sortingAlgorithms/sortingAlgorithms.js';
 import './SortingVisualizer.css';
 import Button from 'react-bootstrap/Button';
 
 // Change this value for the speed of the animations.
-const ANIMATION_SPEED_MS = 5;
+
 
 // Change this value for the number of bars (value) in the array.
 const NUMBER_OF_ARRAY_BARS = 100;
@@ -21,43 +21,58 @@ export default class SortingVisualizer extends React.Component {
 
     this.state = {
       array: [],
+      speed: 0,
+      position: 0, // initial position
     };
+    this.handleMouseMove = this.handleMouseMove.bind(this);
+    this.handleSpeedChange = this.handleSpeedChange.bind(this);
   }
-
   componentDidMount() {
     this.resetArray();
+    document.addEventListener("mousemove", this.handleMouseMove);
+  }
+  componentWillUnmount() {
+    document.removeEventListener("mousemove", this.handleMouseMove);
+  }
+  handleMouseMove(event) {
+    const newPosition = event.clientX / window.innerWidth;
+    this.setState({ position: newPosition });
+  }
+
+  handleSpeedChange(event) {
+    const newSpeed = event.target.value;
+    this.setState({ speed: newSpeed });
   }
 
   resetArray() {
     const array = [];
     for (let i = 0; i < NUMBER_OF_ARRAY_BARS; i++) {
-      array.push(randomIntFromInterval(5, 730));
+      array.push(randomIntFromInterval(5, 330));
     }
-    this.setState({array});
+    this.setState({ array });
   }
 
   generateMediumArray() {
     const array = [];
     const numberOfBars = 50;
     for (let i = 0; i < numberOfBars; i++) {
-      array.push(randomIntFromInterval(5, 730));
+      array.push(randomIntFromInterval(5, 30));
     }
     this.setState({ array });
   }
-  
+
   generateLargeArray() {
     const array = [];
-    const numberOfBars = 150;
+    const numberOfBars = 100;
     for (let i = 0; i < numberOfBars; i++) {
-      array.push(randomIntFromInterval(5, 730));
+      array.push(randomIntFromInterval(5, 550));
     }
     this.setState({ array });
   }
 
   mergeSort() {
     const animations = getMergeSortAnimations(this.state.array);
-    // console.log("mergesort->", animations);
-    for (let i = 0; i < animations.length-1; i++) {
+    for (let i = 0; i < animations.length - 1; i++) {
       const arrayBars = document.getElementsByClassName('array-bar');
       const isColorChange = i % 3 !== 2;
       if (isColorChange) {
@@ -68,13 +83,13 @@ export default class SortingVisualizer extends React.Component {
         setTimeout(() => {
           barOneStyle.backgroundColor = color;
           barTwoStyle.backgroundColor = color;
-        }, i * ANIMATION_SPEED_MS);
+        }, i * this.state.speed);
       } else {
         setTimeout(() => {
           const [barOneIdx, newHeight] = animations[i];
           const barOneStyle = arrayBars[barOneIdx].style;
           barOneStyle.height = `${newHeight}px`;
-        }, i * ANIMATION_SPEED_MS);
+        }, i * this.state.speed);
       }
     }
   }
@@ -89,7 +104,6 @@ export default class SortingVisualizer extends React.Component {
 
   bubbleSort() {
     const animations = getBubbleSortAnimations(this.state.array);
-    console.log("animations->",animations);
     for (let i = 0; i < animations.length; i++) {
       const arrayBars = document.getElementsByClassName('array-bar');
       const isColorChange = i % 4 === 0 || i % 4 === 1;
@@ -104,7 +118,7 @@ export default class SortingVisualizer extends React.Component {
           setTimeout(() => {
             barOneStyle.backgroundColor = color;
             barTwoStyle.backgroundColor = color;
-          }, i * ANIMATION_SPEED_MS);
+          }, i * this.state.speed);
         }
       } else {
         setTimeout(() => {
@@ -114,37 +128,47 @@ export default class SortingVisualizer extends React.Component {
             const barOneStyle = barOne.style;
             barOneStyle.height = `${newHeight}px`;
           }
-        }, i * ANIMATION_SPEED_MS);
+        }, i * this.state.speed);
       }
     }
   }
-
   render() {
-    const {array} = this.state;
-
+    const { array } = this.state;
     return (
       <>
-      <div className="array-container">
-        {array.map((value, idx) => (
-          <div
-            className="array-bar"
-            key={idx}
-            style={{
-              backgroundColor: PRIMARY_COLOR,
-              height: `${value}px`,
-            }}></div>
-        ))}
-
-      </div>
-      <div>
-            
+        <div className="contain-all">
+          <div className="container">
+            <div className="array-container">
+              {array.map((value, idx) => (
+                <div
+                  className="array-bar"
+                  key={idx}
+                  style={{
+                    backgroundColor: PRIMARY_COLOR,
+                    height: `${value}px`,
+                  }}></div>
+              ))}
+            </div>
+            <div>
               <Button variant="success" onClick={() => this.mergeSort()}>Merge Sort</Button>
               <Button variant="success" onClick={() => this.bubbleSort()}>Bubble Sort</Button>
               <Button variant="success" onClick={() => this.generateMediumArray()}>Generate Medium Array</Button>
               <Button variant="success" onClick={() => this.generateLargeArray()}>Generate Large Array</Button>
-      </div>
+            </div>
+            <div class="slider-container">
+              <input
+                type="range"
+                min="0"
+                max="20"
+                value={this.state.speed}
+                onChange={this.handleSpeedChange}
+                class="slider"
+              />
+              <span class="slider-value">Decrease Speed (in MS): {this.state.speed}</span>
+            </div>
+          </div>
+        </div>
       </>
-
     );
   }
 }
@@ -154,8 +178,3 @@ function randomIntFromInterval(min, max) {
   // min and max included
   return Math.floor(Math.random() * (max - min + 1) + min);
 }
-/*              <button onClick={() => this.quickSort()}>Quick Sort</button>
-              <button onClick={() => this.heapSort()}>Heap Sort</button> 
-              <Button variant="success" onClick={() => this.resetArray()}>Generate New Array</Button>
-              <Button variant="success" onClick={() => this.resetArray()}>Reset Array</Button>
-              */

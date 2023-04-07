@@ -11,8 +11,9 @@
   
 }
 
+
 .node-start {
-  background-color: green;
+  background-color: rgb(116, 229, 116);
 }
 .node-image {
   width: 30px;
@@ -57,7 +58,12 @@
 }
 
 .node-wall {
-  background-color: rgb(12, 53, 71);
+  background-color: rgb(1, 2, 51);
+  transition: background-color 0.3s ease-in-out;;
+}
+
+.node-wall:hover {
+  background-color: rgb(34, 94, 123);
 }
 
 .node-shortest-path {
@@ -70,7 +76,14 @@
   animation-fill-mode: forwards;
   animation-play-state: running;
 }
-
+.fixed-image {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  max-width: 100%;
+  max-height: 100%;
+}
 @keyframes shortestPath {
   0% {
     transform: scale(0.6);
