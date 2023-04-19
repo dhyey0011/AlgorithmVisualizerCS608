@@ -17,13 +17,13 @@
   border-radius: 10px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
   background-color: #f5f5f5;
+  margin-left: 210px;
 }
 
 
 .grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
-  
   justify-items: center;
   align-items: center;
   white-space: pre;

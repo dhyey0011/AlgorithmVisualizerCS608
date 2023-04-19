@@ -7,7 +7,7 @@ import Button from 'react-bootstrap/Button';
 
 
 // Change this value for the number of bars (value) in the array.
-const NUMBER_OF_ARRAY_BARS = 100;
+const NUMBER_OF_ARRAY_BARS = 35;
 
 // This is the main color of the array bars.
 const PRIMARY_COLOR = 'turquoise';
@@ -22,7 +22,6 @@ export default class SortingVisualizer extends React.Component {
     this.state = {
       array: [],
       speed: 0,
-      position: 0, // initial position
     };
     this.handleMouseMove = this.handleMouseMove.bind(this);
     this.handleSpeedChange = this.handleSpeedChange.bind(this);
@@ -54,18 +53,18 @@ export default class SortingVisualizer extends React.Component {
 
   generateMediumArray() {
     const array = [];
-    const numberOfBars = 50;
+    const numberOfBars = 30;
     for (let i = 0; i < numberOfBars; i++) {
-      array.push(randomIntFromInterval(5, 450));
+      array.push(randomIntFromInterval(5, 350));
     }
     this.setState({ array });
   }
 
   generateLargeArray() {
     const array = [];
-    const numberOfBars = 100;
+    const numberOfBars = 50;
     for (let i = 0; i < numberOfBars; i++) {
-      array.push(randomIntFromInterval(5, 550));
+      array.push(randomIntFromInterval(5, 450));
     }
     this.setState({ array });
   }
@@ -146,7 +145,9 @@ export default class SortingVisualizer extends React.Component {
                   style={{
                     backgroundColor: PRIMARY_COLOR,
                     height: `${value}px`,
-                  }}></div>
+                  }}>
+
+                </div>
               ))}
             </div>
             <div>
@@ -164,7 +165,7 @@ export default class SortingVisualizer extends React.Component {
                 onChange={this.handleSpeedChange}
                 class="slider"
               />
-              <span class="slider-value">Decrease Speed (in MS): {this.state.speed}</span>
+              <span class="slider-value">Add Delay(in MS): {this.state.speed}</span>
             </div>
           </div>
         </div>

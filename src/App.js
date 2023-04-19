@@ -5,12 +5,26 @@ import "./index.css";
 import "./Navbar.css"
 import SortingVisualizer from './SortingVisualizer/SortingVisualizer';
 import Navbar from './Navbar';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { Element } from 'react-scroll';
-
+import InfoSidebar from './Info/InfoSidebar';
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import VisualizerSidebar from './visualizer/VisualizerSidebar';
 function App() {
   return (
-    <div className="App">
+    <>
+    <BrowserRouter>
+    <Navbar/>
+      <Routes>
+          <Route path="/visualizer" element={<VisualizerSidebar />} />
+          <Route path="/info" element={<InfoSidebar />} />
+      </Routes>
+    </BrowserRouter>
+    </>
+  );
+}
+
+export default App;
+/*
       <Navbar />
       <Element name="pathfinding-visualizer">
         <PathfindingVisualizer />
@@ -18,8 +32,4 @@ function App() {
       <Element name="sorting-visualizer">
         <SortingVisualizer />
       </Element>
-    </div>
-  );
-}
-
-export default App;
+*/

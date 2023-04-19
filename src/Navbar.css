@@ -13,6 +13,7 @@ nav {
   padding: 10px;
   font-family: 'Montserrat', sans-serif;
   font-size: 30px;
+  z-index: 1000;
 }
 
 nav ul {
