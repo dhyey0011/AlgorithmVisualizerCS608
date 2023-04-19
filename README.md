@@ -7,8 +7,6 @@ Algorithm Visualizer is a web application that visualizes different algorithms u
 - [Introduction](#introduction)
 - [Features](#features)
 - [Installation and Usage](#installation-and-usage)
-- [Contributing](#contributing)
-- [License](#license)
 
 ## Introduction
 
