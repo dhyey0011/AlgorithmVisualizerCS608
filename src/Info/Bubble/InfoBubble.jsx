@@ -4,9 +4,9 @@ import Typography from '@material-ui/core/Typography';
 import Grid from '@material-ui/core/Grid';
 import Paper from '@material-ui/core/Paper';
 import { useSpring, animated } from 'react-spring';
+import bubblesort1 from './bubbleGif2.gif';
+import bubblesort from './bubblegif.gif';
 
-import astar from './Astar.gif';
-import astar2 from './astar2.gif'
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -54,7 +54,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 
-function AstarAlgorithmInfo() {
+function BubbleAlgorithmInfo() {
     const classes = useStyles();
 
     const sectionAnimation = useSpring({
@@ -69,35 +69,37 @@ function AstarAlgorithmInfo() {
             <Grid container spacing={2}>
                 <Grid item xs={12}>
                     <Typography variant="h4" gutterBottom className={classes.title}>
-                        A star Algorithm
+                        Bubble Sort
                     </Typography>
                 </Grid>
                 <Grid item xs={12} md={6 }>
                     <animated.div style={sectionAnimation}>
                         <Paper className={classes.section}>
                             <Typography variant="body1" gutterBottom>
-                                Dijkstra's algorithm is a graph search algorithm that solves the single-source shortest path problem for a graph with non-negative edge weights, producing a shortest path tree. This algorithm is often used in routing and as a subroutine in other graph algorithms.
+                            Bubble sort is a basic algorithm for arranging a string of numbers or other elements in the correct order. The method works by examining each set of adjacent elements in the string, from left to right, switching their positions if they are out of order. The algorithm then repeats this process until it can run through the entire string and find no two elements that need to be swapped.
                             </Typography>
                         </Paper>
                     </animated.div>
                     <animated.div style={sectionAnimation}>
                         <Paper className={classes.section}>
                             <Typography variant="body1" gutterBottom>
-                                The algorithm maintains a set of vertices whose shortest distance from the source is known. Initially, only thesource vertex is known. The algorithm repeatedly selects the vertex with the minimum distance from the source and adds it to the set of known vertices. It then updates the distance of its neighbors if it finds a shorter path.
+                            Computer programmers use bubble sort to arrange a sequence of numbers in the correct order. Because it is the simplest type of sorting algorithm, bubble sort does not get used much in real-world computer science. Its most common uses for programmers include the following:
                             </Typography>
                         </Paper>
                     </animated.div>
                     <animated.div style={sectionAnimation}>
                         <Paper className={classes.section}>
                             <Typography variant="body1" gutterBottom>
-                                The time complexity of Dijkstra's algorithm is O(E + V log V), where E is the number of edges and V is the number of vertices. The space complexity of the algorithm is O(V).
+                                1.Bubble sort works as a method for teaching new programmers how to sort data sets because the algorithm is straightforward to understand and implement.<br/>
+                                2.Because it has to repeatedly cycle through the entire set of elements, comparing only two adjacent items at a time, bubble sort is not optimal for more massive datasets. But it can work well when sorting only a small number of elements.<br/>
+                                3. Finally, some computer scientists and data analysts use the algorithm as a final check for datasets they believe are already in nearly sorted order.
                             </Typography>
                         </Paper>
                     </animated.div>
                     <animated.div style={sectionAnimation}>
                         <Paper className={classes.section}>
                             <Typography variant="body1" gutterBottom>
-                                Dijkstra's algorithm can be used in a variety of applications, such as finding the shortest path between two points in a map, finding the fastest route in a transportation network, and optimizing packet routing in computer networks.
+                            In the worst-case scenario, when the input array is in reverse order, bubble sort has a time complexity of O(n^2), where n is the number of elements in the array. In the best-case scenario, when the input array is already sorted, bubble sort has a time complexity of O(n). Bubble sort has a space complexity of O(1), which means that it doesn't require any additional memory to sort the input array. However, bubble sort is considered to be an inefficient sorting algorithm for large arrays due to its slow performance.
                             </Typography>
                         </Paper>
                     </animated.div>
@@ -105,14 +107,17 @@ function AstarAlgorithmInfo() {
                 <Grid item xs={12} md={6}>
                     <animated.div style={sectionAnimation}>
                         <Paper className={classes.section}>
+                            <Typography variant="body1" gutterBottom>
+                                Below is an example of the Bubble Sort:
+                            </Typography>
                             <div style={{ display: 'flex', justifyContent: 'center' }}>
-                                <img src={astar} alt="Dijkstra's algorithm process" className={classes.image} />
+                                <img src={bubblesort1} alt="Dijkstra's algorithm process" className={classes.image} />
                             </div>
                         </Paper>
                         <Paper className={classes.section}>
 
                             <div style={{ display: 'flex', justifyContent: 'center' }}>
-                                <img src={astar2} alt="Dijkstra's algorithm process" className={classes.image} />
+                                <img src={bubblesort} alt="Dijkstra's algorithm process" className={classes.image} />
                             </div>
                         </Paper>
                     </animated.div>
@@ -123,5 +128,4 @@ function AstarAlgorithmInfo() {
     );
 }
 
-export default AstarAlgorithmInfo;
-
+export default BubbleAlgorithmInfo;

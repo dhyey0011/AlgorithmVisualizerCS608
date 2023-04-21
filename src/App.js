@@ -9,12 +9,14 @@ import { Element } from 'react-scroll';
 import InfoSidebar from './Info/InfoSidebar';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import VisualizerSidebar from './visualizer/VisualizerSidebar';
+import Home from './Home/src/App';
 function App() {
   return (
     <>
     <BrowserRouter>
     <Navbar/>
       <Routes>
+          <Route path="/" element={<Home />} />
           <Route path="/visualizer" element={<VisualizerSidebar />} />
           <Route path="/info" element={<InfoSidebar />} />
       </Routes>

@@ -5,8 +5,9 @@ import Grid from '@material-ui/core/Grid';
 import Paper from '@material-ui/core/Paper';
 import { useSpring, animated } from 'react-spring';
 
-import astar from './Astar.gif';
-import astar2 from './astar2.gif'
+import mergesort1 from './mergesort.gif';
+import mergesort2 from './mergesort2.gif';
+
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -54,7 +55,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 
-function AstarAlgorithmInfo() {
+function MergeAlgorithmInfo() {
     const classes = useStyles();
 
     const sectionAnimation = useSpring({
@@ -69,35 +70,42 @@ function AstarAlgorithmInfo() {
             <Grid container spacing={2}>
                 <Grid item xs={12}>
                     <Typography variant="h4" gutterBottom className={classes.title}>
-                        A star Algorithm
+                        Merge Sort
                     </Typography>
                 </Grid>
                 <Grid item xs={12} md={6 }>
                     <animated.div style={sectionAnimation}>
                         <Paper className={classes.section}>
                             <Typography variant="body1" gutterBottom>
-                                Dijkstra's algorithm is a graph search algorithm that solves the single-source shortest path problem for a graph with non-negative edge weights, producing a shortest path tree. This algorithm is often used in routing and as a subroutine in other graph algorithms.
+                            Merge Sort is a sorting algorithm that uses the divide and conquer approach to sort an array or a list of items. It works by dividing the unsorted list into n sub-lists, each containing one element, and then repeatedly merging sub-lists to produce new sorted sub-lists until there is only one sub-list remaining.
                             </Typography>
                         </Paper>
                     </animated.div>
                     <animated.div style={sectionAnimation}>
                         <Paper className={classes.section}>
                             <Typography variant="body1" gutterBottom>
-                                The algorithm maintains a set of vertices whose shortest distance from the source is known. Initially, only thesource vertex is known. The algorithm repeatedly selects the vertex with the minimum distance from the source and adds it to the set of known vertices. It then updates the distance of its neighbors if it finds a shorter path.
+                            Here's an example of how Merge Sort works on the array [38, 27, 43, 3, 9, 82, 10]: <br />
+
+1. Divide the array into two sub-arrays: [38, 27, 43, 3] and [9, 82, 10].<br />
+2. Recursively divide each sub-array into smaller sub-arrays until each sub-array contains only one element: [38], [27], [43], [3], [9], [82], [10].<br />
+3. Merge the sub-arrays back together in sorted order: [27, 38, 43], [3], [9, 10, 82].<br />
+4. Merge the sub-arrays again: [3, 27, 38, 43], [9, 10, 82].<br />
+5. Merge the sub-arrays one last time to get the final sorted array: [3, 9, 10, 27, 38, 43, 82].<br />
                             </Typography>
                         </Paper>
                     </animated.div>
                     <animated.div style={sectionAnimation}>
                         <Paper className={classes.section}>
                             <Typography variant="body1" gutterBottom>
-                                The time complexity of Dijkstra's algorithm is O(E + V log V), where E is the number of edges and V is the number of vertices. The space complexity of the algorithm is O(V).
+                            Merge Sort has a time complexity of O(n log n) in both the average and worst cases. This makes it one of the most efficient sorting algorithms, especially for larger datasets. However, Merge Sort does require additional memory proportional to the size of the input array, which can be a drawback for very large datasets.
                             </Typography>
                         </Paper>
                     </animated.div>
                     <animated.div style={sectionAnimation}>
                         <Paper className={classes.section}>
                             <Typography variant="body1" gutterBottom>
-                                Dijkstra's algorithm can be used in a variety of applications, such as finding the shortest path between two points in a map, finding the fastest route in a transportation network, and optimizing packet routing in computer networks.
+                            Merge Sort is a stable sorting algorithm, meaning that the relative order of equal elements is preserved. This makes it a good choice when sorting objects with multiple keys or attributes.
+Overall, Merge Sort is a powerful and efficient sorting algorithm that is widely used in computer science and programming.
                             </Typography>
                         </Paper>
                     </animated.div>
@@ -106,13 +114,13 @@ function AstarAlgorithmInfo() {
                     <animated.div style={sectionAnimation}>
                         <Paper className={classes.section}>
                             <div style={{ display: 'flex', justifyContent: 'center' }}>
-                                <img src={astar} alt="Dijkstra's algorithm process" className={classes.image} />
+                                <img src={mergesort1} alt="Dijkstra's algorithm process" className={classes.image} />
                             </div>
                         </Paper>
                         <Paper className={classes.section}>
 
                             <div style={{ display: 'flex', justifyContent: 'center' }}>
-                                <img src={astar2} alt="Dijkstra's algorithm process" className={classes.image} />
+                                <img src={mergesort2} alt="Dijkstra's algorithm process" className={classes.image} />
                             </div>
                         </Paper>
                     </animated.div>
@@ -123,5 +131,4 @@ function AstarAlgorithmInfo() {
     );
 }
 
-export default AstarAlgorithmInfo;
-
+export default MergeAlgorithmInfo;

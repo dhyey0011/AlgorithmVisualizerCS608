@@ -1,6 +1,9 @@
 import React , { useState } from 'react'
 import DijkstraAlgorithmInfo from './Dijkstra/InfoDijkstra';
 import AstarAlgorithmInfo from './Astar/InfoAstar';
+import MergeAlgorithmInfo from './Merge/InfoMerge';
+import BubbleAlgorithmInfo from './Bubble/InfoBubble';
+
 import Sidebar from './sidebarInfo/sidebar';
 import { SlArrowRight } from "react-icons/sl";
 
@@ -14,15 +17,27 @@ const InfoSidebar = () => {
   const sidebarItems = [
     {
       name: 'Dijkstra',
-      label: "Dijkstra's Algorithm",
+      label: "Dijkstra's Algo",
       icon: <SlArrowRight />,
       component: <DijkstraAlgorithmInfo />
     },
     {
-      name: 'PathfindingVisualizer',
+      name: 'A * Algorithm',
       label: 'A Star Algorithm',
       icon: <SlArrowRight />,
       component: <AstarAlgorithmInfo />
+    },
+    {
+      name: 'Merge sort',
+      label: 'Merge Sort',
+      icon: <SlArrowRight />,
+      component: <MergeAlgorithmInfo />
+    },
+    {
+      name: 'Bubble Sort',
+      label: 'Bubble Sort',
+      icon: <SlArrowRight />,
+      component: <BubbleAlgorithmInfo />
     }
   ];
 

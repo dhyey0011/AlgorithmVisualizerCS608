@@ -9,7 +9,7 @@ function Navbar() {
         <li>
           <Link
             activeClass="active"
-            to="/home"
+            to="/"
             spy={true}
             smooth={true}
             offset={0}
