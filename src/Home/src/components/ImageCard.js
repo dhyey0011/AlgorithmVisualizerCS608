@@ -14,12 +14,13 @@ const useStyles = makeStyles({
     margin: '20px',
   },
   media: {
-    height: 200,
+    height: '200px',
+    width: '300px'
   },
   title: {
-    fontFamily: 'Nunito',
-    fontWeight: 'bold',
-    fontSize: '2rem',
+    fontFamily: 'Verdana, Arial, Tahoma, Serif',
+    //fontWeight: 'bold',
+    fontSize: '1.6rem',
     color: '#fff',
   },
   desc: {
@@ -51,7 +52,7 @@ export default function ImageCard({ place, checked }) {
         <CardMedia
           className={classes.media}
           image={place.imageUrl}
-          title="Contemplative Reptile"
+          
         />
         <CardContent>
           <Typography

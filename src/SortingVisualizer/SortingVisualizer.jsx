@@ -10,7 +10,7 @@ import Button from 'react-bootstrap/Button';
 const NUMBER_OF_ARRAY_BARS = 35;
 
 // This is the main color of the array bars.
-const PRIMARY_COLOR = 'turquoise';
+const PRIMARY_COLOR = '#004D40';
 
 // This is the color of array bars that are being compared throughout the animations.
 const SECONDARY_COLOR = 'red';

@@ -5,7 +5,7 @@ nav {
   top: 0;
   left: 0;
   width: 100%;
-  background-color: #54cdb7;
+  background-color: #00796B;
   color: #fff;
   display: flex;
   justify-content: center;
@@ -39,5 +39,5 @@ nav ul li a {
 }
 
 .nav-link:hover {
-  color: #3c743c!important;
+  color: #0b2e2e!important;
 }

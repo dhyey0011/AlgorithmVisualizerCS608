@@ -21,9 +21,12 @@ const useStyles = makeStyles((theme) => ({
     padding: '10px',
     borderRadius: '10px',
     boxShadow: '0 0 10px rgba(0, 0, 0, 0.3)',
-    backgroundColor: '#f5f5f5',
+    backgroundColor: '#0d4f3e',
     maxWidth: '1400px',
-    transform: 'scale(0.9)'
+    transform: 'scale(0.9)',
+    fontFamily: 'Verdana, Arial, Tahoma, Serif !important',
+    //width: '200%',
+    //minWidth: '100%'
   }    
 }));
 export default function Home() {
