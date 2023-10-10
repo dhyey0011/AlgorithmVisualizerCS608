@@ -1,7 +1,7 @@
 # Algorithm Visualizer
 
 Algorithm Visualizer is a web application that visualizes different algorithms using interactive animations. This application is built using Reactjs primarily with additionaly react libraries such as material UI, react-spring, framer motion.
-
+See live Demo: https://algoviz-cs608.netlify.app/
 ## Table of Contents
 
 - [Introduction](#introduction)
